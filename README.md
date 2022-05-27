@@ -1,14 +1,14 @@
 <h1>Step 1</h1>
 
-<h1>rename env.example to env and database name is : library</h1>
+<h1>rename env.example to env and database name is : User Crud</h1>
 
-<h1> composer install </h1>
-<h1> php artisan key:generate  </h1>
+<p> composer install </p>
+<p> php artisan key:generate  </p>
 
-<h1>php artisan config:cache </h1>
+<p>php artisan config:cache </p>
 
-<h1> run migration php artisan migrate </h1>
+<p> run migration php artisan migrate </p>
 
-<h1> php artisan db:seeder </h1>
+<p> php artisan db:seeder </p>
 
 admin login username= admin@gmail.com  password=123456
