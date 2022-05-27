@@ -1,5 +1,4 @@
 <h1>Step 1</h1>
-<p> Clone Project :  git clone https://github.com/SyedShair/Library-managmentsystem.git <p/>
 
 <h1>rename env.example to env and database name is : library</h1>
 
