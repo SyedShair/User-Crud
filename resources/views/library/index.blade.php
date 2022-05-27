@@ -15,8 +15,6 @@
     </section>
 @php
 $user = \App\Models\User::count();
-$books = \App\Models\Book::count();
-$racks = \App\Models\Rack::count();
 
 @endphp
     <!-- Main content -->
@@ -24,32 +22,6 @@ $racks = \App\Models\Rack::count();
         <!-- Small boxes (Stat box) -->
         <div class="row">
             @if(\Illuminate\Support\Facades\Auth::user()->role_id == 1)
-            <div class="col-lg-4 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-aqua">
-                    <div class="inner">
-                        <h3>{{$racks}}</h3>
-                        <p>Total Racks</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-cube"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div><!-- ./col -->
-            <div class="col-lg-4 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3>{{$books}}<sup style="font-size: 20px">%</sup></h3>
-                        <p>Total Books</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-book"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div><!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-yellow">

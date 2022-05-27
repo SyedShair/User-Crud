@@ -38,6 +38,16 @@ Route::group(['middleware' =>['auth']],function() {
         Route::get('/delete/{id}', [BookController::class, 'book_delete'])->name('book.delete');
         Route::get('/search', [BookController::class, 'books_search'])->name('books.search');
     });
+
+
+    Route::prefix('/users')->group(function () {
+        Route::get('/all', [HomeController::class, 'all'])->name('all.users');
+        Route::get('/delete/{id}', [HomeController::class, 'user_del'])->name('user.delete');
+        Route::get('/fetch/{id}', [HomeController::class, 'user_edit'])->name('user.edit');
+        Route::post('/update/{id}', [HomeController::class, 'user_update'])->name('user.update');
+    });
+
+
     Route::get('/logout',[UserController::class, 'logout'])->name('logout');
 });
 

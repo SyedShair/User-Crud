@@ -14,9 +14,9 @@
             <!-- Logo -->
             <a href="{{route('index.admin')}}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>Lib</b>rary</span>
+                <span class="logo-mini"><b>Register</b>Module</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Library</b></span>
+                <span class="logo-lg"><b>Register Module</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -48,7 +48,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="{{route('user.edit',['id'=>auth()->user()->id])}}" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="{{route('logout')}}" class="btn btn-default btn-flat">Sign out</a>
@@ -87,34 +87,19 @@
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
 
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-cube"></i> <span>Racks</span> <i class="fa fa-angle-left pull-right"></i>
+                    </li> <li class="treeview">
+                        <a href="{{route('all.users')}}">
+                            <i class="fa fa-users"></i> <span>All Users</span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href="{{route('rack.index')}}"> Add Rack</a></li>
-                        </ul>
+
                     </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-book"></i> <span>Books</span> <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="active"><a href="{{route('book.index')}}"> Add Book</a></li>
-                            </ul>
-                        </li>
+
                     @endif
                     @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2 || \Illuminate\Support\Facades\Auth::user()->role_id == 1)
 
-                            <li class="treeview">
-                        <a href="{{route('rack.details')}}">
-                            <i class="fa  fa-external-link-square"></i> <span>View Racks</span></i>
-                        </a>
-                    </li>
                     </li> <li class="treeview">
-                        <a href="{{route('books.search')}}">
-                            <i class="fa  fa-book"></i> <span>Search Books</span></i>
+                        <a href="{{route('user.edit',['id'=>auth()->user()->id])}}">
+                            <i class="fa  fa-book"></i> <span>Edit Profile</span></i>
                         </a>
                     </li>
                         @endif
@@ -136,10 +121,8 @@
 
     @section('footer')
             <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="">Almsaeed Studio</a>.</strong> All rights reserved.
+
+        <strong style="text-align: center"> All rights reserved.</strong>
     </footer>
         @show
 

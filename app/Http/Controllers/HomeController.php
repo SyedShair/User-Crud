@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Rack;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -100,5 +101,51 @@ class HomeController extends Controller
 
     }
 
+    function all(){
+         $all = User::all();
+         return view('library.users',compact('all'));
+    }
+    function user_del(Request $request)
+    {
+        $del = User::where('id', $request->id)->first();
+
+        if ($del->role_id == 1){
+            $notification = array(
+                'message' => 'Admin Cannot Delete Himself',
+                'alert-type' => 'info'
+            );
+            return redirect()->back()->with($notification);
+        }
+        else{
+            $del->delete();
+            $notification = array(
+                'message' => 'User Deleted Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
+    }
+
+    function user_edit($id){
+        $edit = User::where('id',$id)->first();
+        return view('library.edit',compact('edit'));
+    }
+    function user_update(Request $request,$id){
+
+         $update = new User();
+         $update->exists =- true;
+         $update->id = $id;
+         $update->name = $request->name;
+         $update->email = $request->email;
+         $update->save();
+        if ($update==true){
+            $notification = array(
+                'message' => 'User Updated his Profile Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
+
+    }
 
 }
